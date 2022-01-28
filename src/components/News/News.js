@@ -7,7 +7,7 @@ function News({ title, image }) {
       <img
         className="news-container-image"
         src={image}
-        alt="relevant image of the news"
+        alt="relevant to news story"
       />
       <figcaption className="news-container-text">{title}</figcaption>
     </figure>
