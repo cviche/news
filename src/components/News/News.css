@@ -1,0 +1,19 @@
+.news-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-container-image {
+  object-fit: cover;
+  width: 350px;
+  height: 200px;
+}
+
+.news-container-text {
+  position: absolute;
+  bottom: 0;
+  color: black;
+  background-color: #fffd;
+  width: 100%;
+}
