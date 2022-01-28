@@ -7,6 +7,7 @@ function App() {
   return (
     <div>
       <Header />
+      <h1 style={{ textAlign: "center" }}>Today's News</h1>
       <div className="news-component-container">
         <News
           title="This is the title of the story."
