@@ -1,12 +1,10 @@
 import axios from "axios";
-const API_KEY = process.env.REACT_APP_API_KEY;
+const BACKEND_SERVER = process.env.REACT_APP_BACKEND_SERVER;
 
 export async function fetchNews() {
   try {
     console.log("Fetching the news from the API...");
-    const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
-    );
+    const response = await axios.get(BACKEND_SERVER);
     const { status } = response.data;
 
     if (status !== "ok") {
