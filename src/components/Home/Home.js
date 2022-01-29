@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import News from "../News/News";
 import "./Home.css";
+import noImage from "../../images/question-image.jpeg";
 import { fetchNews, setNewsToken } from "./newsAPI";
 
 function setNewsWrapper(setNews, articles) {
   setNews(
     articles.map((article, idx) => {
       if (article.urlToImage === null) {
-        article.urlToImage = "images/question-image.jpeg";
+        article.urlToImage = noImage;
       }
       return (
         <News
