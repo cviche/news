@@ -26,11 +26,19 @@ function Home() {
 
   useEffect(() => {
     async function fetchCurrentNews() {
-      fetchNews().then((res) => {
-        const { articles } = res.data;
-        setNewsToken(articles);
-        setNewsWrapper(setNews, articles);
-      });
+      fetchNews()
+        .then((res) => {
+          const { articles } = res.data;
+          setNewsToken(articles);
+          setNewsWrapper(setNews, articles);
+        })
+        .catch((error) =>
+          setNews(
+            <h1 style={{ color: "red" }}>
+              There was an error when trying to fetch the news from an API.
+            </h1>
+          )
+        );
     }
 
     const token = localStorage.getItem("random-news-token");
