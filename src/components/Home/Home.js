@@ -23,10 +23,8 @@ function Home() {
 
   useEffect(() => {
     async function fetchCurrentNews() {
-      console.log("In Home.js");
       fetchNews().then((res) => {
         const { articles } = res.data;
-        console.log(articles);
         setNewsToken(articles);
         setNewsWrapper(setNews, articles);
       });
