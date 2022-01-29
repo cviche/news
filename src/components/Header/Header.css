@@ -12,6 +12,12 @@
   justify-content: space-evenly;
 }
 
+.header-container-left-link {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
 @media all and (max-width: 700px) {
   .header-container-left {
     width: 100%;
