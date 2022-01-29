@@ -6,6 +6,9 @@ import { fetchNews, setNewsToken } from "./newsAPI";
 function setNewsWrapper(setNews, articles) {
   setNews(
     articles.map((article, idx) => {
+      if (article.urlToImage === null) {
+        article.urlToImage = "images/question-image.jpeg";
+      }
       return (
         <News
           key={idx}
