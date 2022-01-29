@@ -1,24 +1,17 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-import News from "./components/News/News";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
-    <div>
+    <Router>
       <Header />
-      <h1 style={{ textAlign: "center" }}>Today's News</h1>
-      <div className="news-component-container">
-        <News
-          title="This is the title of the story."
-          image="https://cdn.pixabay.com/photo/2017/01/08/13/58/cube-1963036__340.jpg"
-        />
-        <News
-          title="This is the title of the story."
-          image="https://wallpaperaccess.com/full/154009.jpg"
-        />
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
