@@ -19,3 +19,8 @@ export async function fetchNews() {
     return Promise.reject([]);
   }
 }
+
+export function setNewsToken(articles) {
+  console.log(articles, JSON.stringify(articles));
+  localStorage.setItem("random-news-token", JSON.stringify(articles));
+}
