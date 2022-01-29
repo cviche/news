@@ -1,30 +1,45 @@
 import React, { useEffect, useState } from "react";
 import News from "../News/News";
 import "./Home.css";
-import { fetchNews } from "./fetchNews";
+import todaysNews from "./Temp.json";
+import { fetchNews, setNewsToken } from "./newsAPI";
+
+function setNewsWrapper(setNews, articles) {
+  setNews(
+    articles.map((article, idx) => {
+      return (
+        <News
+          key={idx}
+          title={article.title}
+          image={article.urlToImage}
+          url={article.url}
+        />
+      );
+    })
+  );
+}
 
 function Home() {
   const [news, setNews] = useState([]);
+
   useEffect(() => {
     async function fetchCurrentNews() {
       console.log("In Home.js");
       fetchNews().then((res) => {
         const { articles } = res.data;
-        setNews(
-          articles.map((article, idx) => {
-            return (
-              <News
-                key={idx}
-                title={article.title}
-                image={article.urlToImage}
-                url={article.url}
-              />
-            );
-          })
-        );
+        console.log(articles);
+        setNewsToken(articles);
+        setNewsWrapper(setNews, articles);
       });
     }
-    fetchCurrentNews();
+
+    const token = localStorage.getItem("random-news-token");
+    if (token !== null) {
+      console.log("Fetching the news from the token instead...");
+      setNewsWrapper(setNews, JSON.parse(token));
+    } else {
+      fetchCurrentNews();
+    }
   }, []);
   return (
     <div>
