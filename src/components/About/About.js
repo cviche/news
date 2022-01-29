@@ -17,9 +17,9 @@ function About() {
           <a
             target="_blank"
             rel="noreferrer noopener"
-            href="https://github.com/cviche"
+            href="https://github.com/cviche/news-frontend"
           >
-            Github
+            Github Code
           </a>
         </h2>
 
